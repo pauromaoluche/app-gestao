@@ -22,3 +22,6 @@ Route::get('/sobre-nos', [SobreNosController::class, 'index']);
 
 Route::get('/contato',[ContatoController::class, 'index']);
 
+Route::get('/contato/{nome}', function(string $nome){
+    echo 'Estamos aqui: '.$nome;
+});
