@@ -22,6 +22,18 @@ Route::get('/sobre-nos', [SobreNosController::class, 'index']);
 
 Route::get('/contato',[ContatoController::class, 'index']);
 
-Route::get('/contato/{nome}/{assunto?}/{mensagem?}', function(string $nome, string $assunto = 'Sem assunto a conversar', string $mensagem = 'Sem mensagem escrita'){
-    echo "Estamos aqui: .$nome - $assunto - $mensagem";
-});
+//Caso passe interrogacao no final do parametro,
+//ele vira opcional, lembrar de definar um valor
+//padrao caso ele nao seja recebido
+
+Route::get(
+    '/contato/{nome}/{categoria_id?}',
+    function(
+        string $nome = 'Desconhecido',
+        int $categoria_id = 1,
+        ){
+    echo "Estamos aqui: .$nome - $categoria_id";
+})->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
+//esse where define com o categoria_id deve ser algo enre 0 e 9,
+//e precisa pelo menos ter 1 numero
+//tambem define que o parametro nome tem que estar entre A a Z
