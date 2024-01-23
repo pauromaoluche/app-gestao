@@ -25,15 +25,19 @@ Route::get('/contato',[ContatoController::class, 'index']);
 Route::get('/login', function(){
     return 'Login';
 });
-Route::get('/clientes',function(){
-    return 'Clientes';
+
+Route::prefix('/app')->group(function(){
+    Route::get('/clientes',function(){
+        return 'Clientes';
+    });
+    Route::get('/fornacedores',function(){
+        return 'Fornecedores';
+    });
+    Route::get('/produtos',function(){
+        return 'Produtos';
+    });
 });
-Route::get('/fornacedores',function(){
-    return 'Fornecedores';
-});
-Route::get('/produtos',function(){
-    return 'Produtos';
-});
+
 
 //Caso passe interrogacao no final do parametro,
 //ele vira opcional, lembrar de definar um valor
