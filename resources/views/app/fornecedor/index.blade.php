@@ -21,27 +21,17 @@
 @endif
 
 @isset($fornecedores)
-    <br>
-    Fornecedor: {{ $fornecedores[0]['nome'] }}
-    <br>
-    Status: {{ $fornecedores[0]['status'] }}
-    <br>
-    CNPJ: {{ $fornecedores[1]['cnpj'] ?? 'valor nao esta definida' }}
-    {{-- Se a variavel testada nao estiver definida ou tiver valor null, ele usa o valor defautl --}}
-    <br>
-    Telefone: {{ $fornecedores[1]['ddd']?? '' }} {{$fornecedores[1]['telefone'] ?? ''}}
-
-    @switch($fornecedores[1]['ddd'])
-        @case('85')
-            <h3>São Paulo</h3>
-            @break
-        @case('11')
-            <h3>Juiz de fora</h3>
-        @break
-        @case('43')
-            <h3>Parana</h3>
-        @break
-        @default
-            <h3>Estado não definido</h3>
-    @endswitch
+    @for ($i = 0; isset($fornecedores[$i]); $i++)
+        <br>
+        Fornecedor: {{ $fornecedores[0]['nome'] }}
+        <br>
+        Status: {{ $fornecedores[0]['status'] }}
+        <br>
+        CNPJ: {{ $fornecedores[1]['cnpj'] ?? 'valor nao esta definida' }}
+        {{-- Se a variavel testada nao estiver definida ou tiver valor null, ele usa o valor defautl --}}
+        <br>
+        Telefone: {{ $fornecedores[1]['ddd'] ?? '' }} {{ $fornecedores[1]['telefone'] ?? '' }}
+        <hr>
+    @endfor
 @endisset
+<br>
