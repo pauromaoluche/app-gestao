@@ -1,3 +1,4 @@
+{{ $slot }}
 <form action="{{ route('site.contato') }}" method="POST">
     @csrf
     <input name="nome" type="text" placeholder="Nome" class="borda-preta">
