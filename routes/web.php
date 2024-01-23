@@ -54,3 +54,14 @@ Route::get(
 //esse where define com o categoria_id deve ser algo enre 0 e 9,
 //e precisa pelo menos ter 1 numero
 //tambem define que o parametro nome tem que estar entre A a Z
+
+Route::get('/rota1', function(){
+    echo " Rota 1";
+})->name('site.rota1');
+
+Route::get('/rota2', function(){
+    return redirect()->route('site.rota1');
+})->name('site.rota2');
+
+//Passo a rota de acesso e pra qual rota sera direcionada
+Route::redirect('/rota2', '/rota1');
