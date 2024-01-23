@@ -1,5 +1,5 @@
 @extends('site.layout.app')
-
+@section('titulo', 'Index')
 @section('conteudo')
 
     <body>

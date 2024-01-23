@@ -1,5 +1,5 @@
 @extends('site.layout.app')
-
+@section('titulo', 'Contato')
 @section('conteudo')
     <div class="topo">
 

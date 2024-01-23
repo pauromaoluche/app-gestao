@@ -1,4 +1,5 @@
 @extends('site.layout.app')
+@section('titulo', 'Sobre-nos')
 @section('conteudo')
 
     <body>
