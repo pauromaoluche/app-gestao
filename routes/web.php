@@ -3,6 +3,7 @@
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\SobreNosController;
+use App\Http\Controllers\TesteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,6 +66,8 @@ Route::get('/rota2', function(){
 
 //Passo a rota de acesso e pra qual rota sera direcionada
 Route::redirect('/rota2', '/rota1');
+
+Route::get('/teste/{p1}/{p2}', [TesteController::class, 'index'])->name('teste');
 
 Route::fallback(function(){
     echo 'A rota acessada não existe. <a href="'.route('site.index').'">Clique aqui para ir para página inicial</a>';
