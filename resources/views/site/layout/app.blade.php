@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+    @include('site.layout._partials.topo')
     @yield('conteudo')
 
 </body>
