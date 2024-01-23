@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+@extends('site.layout.app')
 
-<head>
-    <title>Super Gestão - Contato</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
-</head>
-
-<body>
+@section('conteudo')
     <div class="topo">
 
         <div class="logo">
@@ -70,6 +63,4 @@
             <img src="{{ asset('img/mapa.png') }}">
         </div>
     </div>
-</body>
-
-</html>
+@endsection

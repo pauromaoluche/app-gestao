@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <title>Super Gestão - Sobre Nós</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    </head>
+@extends('site.layout.app')
+@section('conteudo')
 
     <body>
         <div class="topo">
@@ -28,9 +23,10 @@
             </div>
 
             <div class="informacao-pagina">
-                <p>O Super Gestão é o sistema online de controle administrativo que pode transformar e potencializar os negócios da sua empresa.</p>
+                <p>O Super Gestão é o sistema online de controle administrativo que pode transformar e potencializar os
+                    negócios da sua empresa.</p>
                 <p>Desenvolvido com a mais alta tecnologia para você cuidar do que é mais importante, seus negócios!</p>
-            </div>  
+            </div>
         </div>
 
         <div class="rodape">
@@ -52,4 +48,4 @@
             </div>
         </div>
     </body>
-</html>
+@endsection
