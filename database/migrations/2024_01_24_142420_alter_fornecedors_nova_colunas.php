@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('fornecedors', function (Blueprint $table) {
+        Schema::table('fornecedores', function (Blueprint $table) {
             $table->string('uf', 2);
             $table->string('email', 150);
         });
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('fornecedors', function (Blueprint $table) {
+        Schema::table('fornecedores', function (Blueprint $table) {
             //para remover colunas
             //$table->dropColumn('uf')
             //para remover varias de uma vez
