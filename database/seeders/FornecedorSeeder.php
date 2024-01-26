@@ -15,12 +15,12 @@ class FornecedorSeeder extends Seeder
      */
     public function run()
     {
-        $fornecedor = new Fornecedor();
-        $fornecedor->nome = 'Fornecedor 100';
-        $fornecedor->site = 'fornecedor100.com.br';
-        $fornecedor->uf = 'PR';
-        $fornecedor->email = 'fornecedor100@hotmail.com.br';
-        $fornecedor->save();
+        // $fornecedor = new Fornecedor();
+        // $fornecedor->nome = 'Fornecedor 100';
+        // $fornecedor->site = 'fornecedor100.com.br';
+        // $fornecedor->uf = 'PR';
+        // $fornecedor->email = 'fornecedor100@hotmail.com.br';
+        // $fornecedor->save();
 
     }
 }

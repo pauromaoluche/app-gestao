@@ -15,13 +15,13 @@ class ContatoSeeder extends Seeder
      */
     public function run()
     {
-        $contato = new Contato();
-        $contato->name = 'Sistema SG';
-        $contato->telefone = '(43)998628444';
-        $contato->email = 'contato@gmail.com';
-        $contato->motivo_contato = 1;
-        $contato->mensagem = 'Seja bem vindo ao sistema Super gestao';
-        $contato->save();
+        // $contato = new Contato();
+        // $contato->name = 'Sistema SG';
+        // $contato->telefone = '(43)998628444';
+        // $contato->email = 'contato@gmail.com';
+        // $contato->motivo_contato = 1;
+        // $contato->mensagem = 'Seja bem vindo ao sistema Super gestao';
+        // $contato->save();
 
     }
 }
