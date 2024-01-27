@@ -17,11 +17,11 @@ class ContatoController extends Controller
 
         //validando para os dados serem obrigatorios
         $request->validade([
-            'nome' => 'required',
+            'nome' => 'required|min:3|max:40',
             'telefone' => 'required',
             'email' => 'email',
             'motivo_contato' => 'motivo_contato',
-            'mensagem' => 'mensagem'
+            'mensagem' => 'mensagem|max:2000'
         ]);
 
         Contato::create($request->all());
