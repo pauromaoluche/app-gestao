@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('contatos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name', 100);
+            $table->string('nome', 100);
             $table->string('telefone', 20);
             $table->string('email', 80);
             $table->integer('motivo_contato');

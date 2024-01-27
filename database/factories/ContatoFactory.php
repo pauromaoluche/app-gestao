@@ -17,7 +17,7 @@ class ContatoFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'nome' => $this->faker->name(),
             'telefone'=> $this->faker->tollFreePhoneNumber(),
             'email'=> $this->faker->unique()->safeEmail(),
             'motivo_contato'=> $this->faker->numberBetween(1,3),
