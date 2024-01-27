@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contato;
+use App\Models\MotivoContato;
 use Illuminate\Http\Request;
 
 class ContatoController extends Controller
@@ -10,11 +11,7 @@ class ContatoController extends Controller
     public function index(Request $request)
     {
 
-        $motivo_contatos = [
-            '1' => 'Dúvida',
-            '2' => 'Elogio',
-            '3' => 'Reclamação',
-        ];
+        $motivo_contatos = MotivoContato::all();
 
         return view('site.contato.index', ['motivo_contatos' => $motivo_contatos]);
     }

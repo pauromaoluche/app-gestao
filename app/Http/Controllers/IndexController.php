@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MotivoContato;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-   public function index(){
+   public function index()
+   {
 
-      $motivo_contatos = [
-         '1' => 'Dúvida',
-         '2' => 'Elogio',
-         '3' => 'Reclamação',
-     ];
-     
-    return view('site.index.index', ['motivo_contatos' => $motivo_contatos]);
+      $motivo_contatos = MotivoContato::all();
+
+      return view('site.index.index', ['motivo_contatos' => $motivo_contatos]);
    }
 }
