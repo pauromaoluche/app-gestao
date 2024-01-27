@@ -21,13 +21,21 @@ class ContatoController extends Controller
     {
 
         //validando para os dados serem obrigatorios
-        $request->validate([
-            'nome' => 'required|min:3|max:40',
-            'telefone' => 'required',
-            'email' => 'email',
-            'motivo_contato_id' => 'required',
-            'mensagem' => 'required|max:2000'
-        ]);
+        $request->validate(
+            [
+                'nome' => 'required|min:3|max:40',
+                'telefone' => 'required',
+                'email' => 'email',
+                'motivo_contato_id' => 'required',
+                'mensagem' => 'required|max:2000'
+            ],
+            [
+                'required' => 'O campo :attribute deve ser preenchido',
+                'nome.min' => 'O campo nome precisa ter no minimo 3 caracteres',
+                'email.email' => 'O campo email precisa ser valido',
+                'mensagem.max' => 'A mensagem deve ter no maximo 2000 caracteres'
+            ],
+        );
 
         Contato::create($request->all());
 
