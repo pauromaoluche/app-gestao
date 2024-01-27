@@ -11,7 +11,8 @@
         <option value="">Qual o motivo do contato?</option>
 
         @foreach ($motivo_contatos as $key => $motivo_contato)
-            <option value="{{ $motivo_contato->id }}" {{ old('motivo_contato_id') == $motivo_contato->id ? 'selected' : '' }}>
+            <option value="{{ $motivo_contato->id }}"
+                {{ old('motivo_contato_id') == $motivo_contato->id ? 'selected' : '' }}>
                 {{ $motivo_contato->motivo_contato }}</option>
         @endforeach
 
@@ -22,3 +23,11 @@
     <br>
     <button type="submit" class="borda-preta">ENVIAR</button>
 </form>
+@if ($errors->any())
+    <div>
+        @foreach ($errors->all() as $erro)
+            {{ $erro }}
+            <br>
+        @endforeach
+    </div>
+@endif
