@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contato;
 use App\Models\MotivoContato;
+use Illuminate\Cache\RedisTaggedCache;
 use Illuminate\Http\Request;
 
 class ContatoController extends Controller
@@ -24,7 +25,7 @@ class ContatoController extends Controller
             'nome' => 'required|min:3|max:40',
             'telefone' => 'required',
             'email' => 'email',
-            'motivo_contato' => 'required',
+            'motivo_contato_id' => 'required',
             'mensagem' => 'required|max:2000'
         ]);
 
@@ -33,5 +34,7 @@ class ContatoController extends Controller
         // $contato = new Contato();
         // $contato->fill($request->all());
         // $contato->save();
+
+        return redirect()->route('site.index');
     }
 }
