@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\LogAcessoMiddleware;
 use App\Models\MotivoContato;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+
+   public function __construct()
+   {
+       $this->middleware(LogAcessoMiddleware::class);
+   }
+
    public function index()
    {
 

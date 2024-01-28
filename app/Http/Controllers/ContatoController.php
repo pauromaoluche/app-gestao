@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\LogAcessoMiddleware;
 use App\Models\Contato;
 use App\Models\MotivoContato;
 use Illuminate\Cache\RedisTaggedCache;
@@ -9,9 +10,14 @@ use Illuminate\Http\Request;
 
 class ContatoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(LogAcessoMiddleware::class);
+    }
+
     public function index(Request $request)
     {
-
         $motivo_contatos = MotivoContato::all();
 
         return view('site.contato.index', ['motivo_contatos' => $motivo_contatos]);
