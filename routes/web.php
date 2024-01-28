@@ -19,21 +19,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [IndexController::class, 'index'])->name('site.index')->middleware(LogAcessoMiddleware::class);
+Route::get('/', [IndexController::class, 'index'])->name('site.index')
+    ->middleware(LogAcessoMiddleware::class);
 
-Route::get('/sobre-nos', [SobreNosController::class, 'index'])->name('site.sobre');
+Route::get('/sobre-nos', [SobreNosController::class, 'index'])->name('site.sobre')
+    ->middleware(LogAcessoMiddleware::class);;
 
-Route::get('/contato',[ContatoController::class, 'index'])->name('site.contato');
-Route::post('/contato',[ContatoController::class, 'store'])->name('site.contato');
+Route::get('/contato', [ContatoController::class, 'index'])->name('site.contato')
+    ->middleware(LogAcessoMiddleware::class);;
+Route::post('/contato', [ContatoController::class, 'store'])->name('site.contato')
+    ->middleware(LogAcessoMiddleware::class);;
 
-Route::get('/login', function(){
+Route::get('/login', function () {
     return 'Login';
 })->name('site.login');
 
-Route::prefix('/app')->group(function(){
-    Route::get('/clientes',function(){ return 'Clientes'; })->name('app.clientes');
+Route::prefix('/app')->group(function () {
+    Route::get('/clientes', function () {
+        return 'Clientes';
+    })->name('app.clientes');
     Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.fornacedores');
-    Route::get('/produtos',function(){
+    Route::get('/produtos', function () {
         return 'Produtos';
     })->name('app.produtos');
 });
@@ -45,21 +51,22 @@ Route::prefix('/app')->group(function(){
 
 Route::get(
     '/contato/{nome}/{categoria_id?}',
-    function(
+    function (
         string $nome = 'Desconhecido',
         int $categoria_id = 1,
-        ){
-    echo "Estamos aqui: .$nome - $categoria_id";
-})->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
+    ) {
+        echo "Estamos aqui: .$nome - $categoria_id";
+    }
+)->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
 //esse where define com o categoria_id deve ser algo enre 0 e 9,
 //e precisa pelo menos ter 1 numero
 //tambem define que o parametro nome tem que estar entre A a Z
 
-Route::get('/rota1', function(){
+Route::get('/rota1', function () {
     echo " Rota 1";
 })->name('site.rota1');
 
-Route::get('/rota2', function(){
+Route::get('/rota2', function () {
     return redirect()->route('site.rota1');
 })->name('site.rota2');
 
@@ -68,6 +75,6 @@ Route::redirect('/rota2', '/rota1');
 
 Route::get('/teste/{p1}/{p2}', [TesteController::class, 'index'])->name('teste');
 
-Route::fallback(function(){
-    echo 'A rota acessada não existe. <a href="'.route('site.index').'">Clique aqui para ir para página inicial</a>';
+Route::fallback(function () {
+    echo 'A rota acessada não existe. <a href="' . route('site.index') . '">Clique aqui para ir para página inicial</a>';
 });
