@@ -33,11 +33,14 @@ Route::get('/login', function () {
 Route::prefix('/app')->group(function () {
     Route::get('/clientes', function () {
         return 'Clientes';
-    })->name('app.clientes');
-    Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.fornacedores');
+    })->name('app.clientes')->middleware('autenticacao');
+
+    Route::get('/fornecedores', [FornecedorController::class, 'index'])
+        ->name('app.fornacedores')->middleware('autenticacao');;
+
     Route::get('/produtos', function () {
         return 'Produtos';
-    })->name('app.produtos');
+    })->name('app.produtos')->middleware('autenticacao');;
 });
 
 
