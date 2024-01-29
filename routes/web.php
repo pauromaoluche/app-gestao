@@ -30,17 +30,10 @@ Route::get('/login', function () {
     return 'Login';
 })->name('site.login');
 
-Route::prefix('/app')->group(function () {
-    Route::get('/clientes', function () {
-        return 'Clientes';
-    })->name('app.clientes')->middleware('autenticacao');
-
-    Route::get('/fornecedores', [FornecedorController::class, 'index'])
-        ->name('app.fornacedores')->middleware('autenticacao');;
-
-    Route::get('/produtos', function () {
-        return 'Produtos';
-    })->name('app.produtos')->middleware('autenticacao');;
+Route::middleware('autenticacao')->prefix('/app')->group(function () {
+    Route::get('/clientes', function () { return 'Clientes'; })->name('app.clientes');
+    Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.fornacedores');
+    Route::get('/produtos', function () { return 'Produtos';})->name('app.produtos');
 });
 
 
