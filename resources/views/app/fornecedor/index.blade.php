@@ -1,3 +1,6 @@
+@extends('app.layout.app')
+@section('titulo', 'Fornecedores')
+@section('conteudo')
 <h3>Fornecedor</h3>
 {{ 'Texto de teste' }}
 
@@ -45,3 +48,4 @@
     @endforelse
 @endisset
 <br>
+@endsection
