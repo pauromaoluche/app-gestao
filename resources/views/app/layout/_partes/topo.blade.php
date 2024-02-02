@@ -1,4 +1,4 @@
-<div class="topo">
+<div class="topo-2">
 
     <div class="logo">
         <img src="{{ asset('img/logo.png') }}">
@@ -8,7 +8,7 @@
         <ul>
             <li><a href="{{ route('app.index') }}">Home</a></li>
             <li><a href="{{ route('app.clientes') }}">Clientes</a></li>
-            <li><a href="{{ route('app.fornacedores') }}">Fornecedores</a></li>
+            <li><a href="{{ route('app.fornecedores') }}">Fornecedores</a></li>
             <li><a href="{{ route('app.produtos') }}">Produtos</a></li>
             <li><a href="{{ route('app.sair') }}">Sair</a></li>
         </ul>

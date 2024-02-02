@@ -75,6 +75,11 @@ button:hover {
     padding: 20px 0px 10px 0px;
 }
 
+.topo-2 {
+    width: 100%;
+    background-color: #f8f8f8;
+}
+
 .logo {
     width: 50px;
     float: left;
@@ -160,6 +165,13 @@ button:hover {
 
 .titulo-pagina {
     padding: 100px 0px 60px 0px;
+    margin-bottom: 10px;
+    background-color: #2a9ee2;
+    text-align: center;
+}
+
+.titulo-pagina-2 {
+    padding: 10px 0px 10px 0px;
     background-color: #2a9ee2;
     text-align: center;
 }
