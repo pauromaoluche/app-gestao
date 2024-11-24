@@ -15,19 +15,23 @@
         </div>
         <div class="informacao-pagina">
             <div style="width: 30%; margin-left:auto; margin-right:auto;">
-                <form method="POST" action="{{ route('produtos.store') }}">
+                <form method="POST" action="{{ route('produtos.update', ['produto' => $produto->id]) }}">
                     @csrf
-                    <input type="text" name="nome" value="{{ $produto->nome ?? old('nome') }}" placeholder="Nome" class="borda-preta">
-                    {{ $errors->has('nome') ? $errors->first('nome') : '' }}
-                    <input type="text" name="descricao" value="{{ $produto->descricao ?? old('descricao') }}" placeholder="descricao"
+                    @method('PUT')
+                    <input type="text" name="nome" value="{{ $produto->nome ?? old('nome') }}" placeholder="Nome"
                         class="borda-preta">
+                    {{ $errors->has('nome') ? $errors->first('nome') : '' }}
+                    <input type="text" name="descricao" value="{{ $produto->descricao ?? old('descricao') }}"
+                        placeholder="descricao" class="borda-preta">
                     {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
-                    <input type="text" name="peso" value="{{ $produto->peso ?? old('peso') }}" placeholder="peso" class="borda-preta">
+                    <input type="text" name="peso" value="{{ $produto->peso ?? old('peso') }}" placeholder="peso"
+                        class="borda-preta">
                     {{ $errors->has('peso') ? $errors->first('peso') : '' }}
                     <select name="unidade_id">
                         <option>Selecione</option>
                         @foreach ($unidades as $item)
-                            <option value="{{ $item->id }}" {{ $produto->unidade_id ?? old('unidade_id') == $item->id ? 'selected' : '' }}>
+                            <option value="{{ $item->id }}"
+                                {{ $produto->unidade_id ?? old('unidade_id') == $item->id ? 'selected' : '' }}>
                                 {{ $item->descricao }}</option>
                         @endforeach
                     </select>
