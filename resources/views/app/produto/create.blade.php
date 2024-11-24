@@ -15,7 +15,7 @@
         </div>
         <div class="informacao-pagina">
             <div style="width: 30%; margin-left:auto; margin-right:auto;">
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('produtos.store') }}">
                     @csrf
                     <input type="text" name="nome" value="" placeholder="Nome" class="borda-preta">
                     <input type="text" name="descricao" value="" placeholder="descricao" class="borda-preta">

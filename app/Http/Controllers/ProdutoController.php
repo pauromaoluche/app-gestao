@@ -27,7 +27,6 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-
         $unidades = Unidade::all();
         return view('app.produto.create', ['unidades' => $unidades]);
     }
@@ -40,7 +39,8 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Produto::create($request->all());
+        return redirect()->route('produtos.index');
     }
 
     /**
