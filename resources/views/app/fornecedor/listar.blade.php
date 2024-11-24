@@ -14,8 +14,31 @@
             </ul>
         </div>
         <div class="informacao-pagina">
-            <div style="width: 30%; margin-left:auto; margin-right:auto;">
-                Lista de fornecedores
+            <div style="width: 90%; margin-left:auto; margin-right:auto;">
+                <table border="1" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Site</th>
+                            <th>Uf</th>
+                            <th>Email</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($fornecedores as $item)
+                            <tr>
+                                <td>{{ $item->nome }}</td>
+                                <td>{{ $item->site }}</td>
+                                <td>{{ $item->uf }}</td>
+                                <td>{{ $item->email }}</td>
+                                <td>Editar</td>
+                                <td>Excluir</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
