@@ -14,7 +14,7 @@
             </ul>
         </div>
         <div class="informacao-pagina">
-            <div style="width: 30%; margin-left:auto; margin-right:auto;">
+            <div style="width: 30%; margin-left:auto; margin-right:auto; padding-top:20px">
             <form method="POST" action="{{ route('app.fornecedores.listar') }}">
                 @csrf
                 <input type="text" name="nome" placeholder="Nome" class="borda-preta">

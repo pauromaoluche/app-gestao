@@ -1,7 +1,7 @@
 <div class="topo">
 
     <div class="logo">
-        <img src="{{ asset('img/logo.png') }}">
+        <img src="https://placehold.co/30x30">
     </div>
 
     <div class="menu">
