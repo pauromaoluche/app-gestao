@@ -35,7 +35,7 @@
                                 <td>{{ $item->peso }}</td>
                                 <td>{{ $item->unidade_id }}</td>
                                 <td><a href="{{ route('produtos.show', ['produto' => $item->id]) }}">Ver</a></td>
-                                <td><a href="{{ route('produtos.edit', $item->id) }}">Editar</a></td>
+                                <td><a href="{{ route('produtos.edit', ['produto' => $item->id]) }}">Editar</a></td>
                                 <td><a href="{{ route('produtos.destroy', $item->id) }}">Excluir</a></td>
 
                             </tr>

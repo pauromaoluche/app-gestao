@@ -5,7 +5,7 @@
 
     <div class="conteudo-pagina">
         <div class="titulo-pagina-2">
-            <p>Produto - Adicionar</p>
+            <p>Produto - Editar</p>
         </div>
         <div class="menu">
             <ul>
@@ -17,17 +17,17 @@
             <div style="width: 30%; margin-left:auto; margin-right:auto;">
                 <form method="POST" action="{{ route('produtos.store') }}">
                     @csrf
-                    <input type="text" name="nome" value="{{ old('nome') }}" placeholder="Nome" class="borda-preta">
+                    <input type="text" name="nome" value="{{ $produto->nome ?? old('nome') }}" placeholder="Nome" class="borda-preta">
                     {{ $errors->has('nome') ? $errors->first('nome') : '' }}
-                    <input type="text" name="descricao" value="{{ old('descricao') }}" placeholder="descricao"
+                    <input type="text" name="descricao" value="{{ $produto->descricao ?? old('descricao') }}" placeholder="descricao"
                         class="borda-preta">
                     {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
-                    <input type="text" name="peso" value="{{ old('peso') }}" placeholder="peso" class="borda-preta">
+                    <input type="text" name="peso" value="{{ $produto->peso ?? old('peso') }}" placeholder="peso" class="borda-preta">
                     {{ $errors->has('peso') ? $errors->first('peso') : '' }}
                     <select name="unidade_id">
                         <option>Selecione</option>
                         @foreach ($unidades as $item)
-                            <option value="{{ $item->id }}" {{ old('unidade_id') == $item->id ? 'selected' : '' }}>
+                            <option value="{{ $item->id }}" {{ $produto->unidade_id ?? old('unidade_id') == $item->id ? 'selected' : '' }}>
                                 {{ $item->descricao }}</option>
                         @endforeach
                     </select>
