@@ -10,31 +10,7 @@ class FornecedorController extends Controller
 
     public function index()
     {
-        $fornecedores = [
-            0 => [
-                'nome' => 'Fornecedor 1',
-                'status' => 'N',
-                'cnpj' => '',
-                'ddd' => '11',
-                'telefone' => '0000-000'
-            ],
-            1 => [
-                'nome' => 'Fornecedor 2',
-                'status' => 'S',
-                'cnpj' => null,
-                'ddd' => '85',
-                'telefone' => '0000-000'
-            ],
-            2 => [
-                'nome' => 'Fornecedor 3',
-                'status' => 'S',
-                'cnpj' => '18484',
-                'ddd' => '43',
-                'telefone' => '0000-000'
-            ]
-        ];
-
-        return view('app.fornecedor.index', compact('fornecedores'));
+        return view('app.fornecedor.index');
     }
 
     public function listar(Request $request)
@@ -43,9 +19,9 @@ class FornecedorController extends Controller
             ->where('site', 'like', '%' . $request->input('site') . '%')
             ->where('uf', 'like', '%' . $request->input('uf') . '%')
             ->where('email', 'like', '%' . $request->input('email') . '%')
-            ->get();
+            ->paginate(5);
 
-        return view('app.fornecedor.listar', ['fornecedores' => $fornecedores]);
+        return view('app.fornecedor.listar', ['fornecedores' => $fornecedores, 'request' => $request->all()]);
     }
 
     public function adicionar(Request $request)

@@ -37,6 +37,7 @@ Route::middleware('autenticacao:padrao')->prefix('/app')->group(function () {
     Route::get('/clientes', function () { return 'Clientes'; })->name('app.clientes');
     Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.fornecedores');
     Route::post('/fornecedores/listar', [FornecedorController::class, 'listar'])->name('app.fornecedores.listar');
+    Route::get('/fornecedores/listar', [FornecedorController::class, 'listar'])->name('app.fornecedores.listar');
     Route::get('/fornecedor/adicionar', [FornecedorController::class, 'adicionar'])->name('app.fornecedores.adicionar');
     Route::post('/fornecedor/adicionar', [FornecedorController::class, 'adicionar'])->name('app.fornecedores.adicionar');
     Route::get('/fornecedor/editar/{id}/{msg?}', [FornecedorController::class, 'editar'])->name('app.fornecedores.editar');
