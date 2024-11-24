@@ -41,6 +41,7 @@ Route::middleware('autenticacao:padrao')->prefix('/app')->group(function () {
     Route::get('/fornecedor/adicionar', [FornecedorController::class, 'adicionar'])->name('app.fornecedores.adicionar');
     Route::post('/fornecedor/adicionar', [FornecedorController::class, 'adicionar'])->name('app.fornecedores.adicionar');
     Route::get('/fornecedor/editar/{id}/{msg?}', [FornecedorController::class, 'editar'])->name('app.fornecedores.editar');
+    Route::get('/fornecedor/excluir/{id}', [FornecedorController::class, 'excluir'])->name('app.fornecedores.excluir');
     Route::get('/produtos', function () { return 'Produtos';})->name('app.produtos');
 });
 
