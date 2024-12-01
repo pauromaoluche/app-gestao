@@ -6,9 +6,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ProdutoDetalheController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
-use App\Models\ProdutoDetalhe;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,7 +45,7 @@ Route::middleware('autenticacao:padrao')->prefix('/app')->group(function () {
     Route::get('/fornecedor/editar/{id}/{msg?}', [FornecedorController::class, 'editar'])->name('app.fornecedores.editar');
     Route::get('/fornecedor/excluir/{id}', [FornecedorController::class, 'excluir'])->name('app.fornecedores.excluir');
     Route::resource('/produtos', ProdutoController::class);
-    Route::resource('produto-detalhe', ProdutoDetalhe::class);
+    Route::resource('produto-detalhe', ProdutoDetalheController::class);
 });
 
 
