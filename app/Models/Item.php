@@ -13,7 +13,7 @@ class Item extends Model
 
     protected $fillable = ['nome', 'descricao', 'peso', 'unidade_id'];
 
-    public function produtoDetalhe(){
+    public function itemDetalhe(){
         return $this->hasOne(ProdutoDetalhe::class, 'produto_id', 'id');
     }
 }
