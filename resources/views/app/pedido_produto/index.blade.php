@@ -1,11 +1,11 @@
 @extends('app.layout.app')
-@section('titulo', 'Pedidos')
+@section('titulo', 'Pedidos produtos')
 @section('conteudo')
-    <h3>Pedidos</h3>
+    <h3>Pedidos produtos</h3>
 
     <div class="conteudo-pagina">
         <div class="titulo-pagina-2">
-            <p>pedidos - Listar</p>
+            <p>pedidos produtos - Listar</p>
         </div>
         <div class="menu">
             <ul>
@@ -27,7 +27,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($pedidos as $item)
+                        @foreach ($pedidos_produtos as $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->cliente_id }}</td>
