@@ -11,9 +11,13 @@ class Item extends Model
 
     protected $table = 'produtos';
 
-    protected $fillable = ['nome', 'descricao', 'peso', 'unidade_id'];
+    protected $fillable = ['nome', 'descricao', 'peso', 'unidade_id', 'fornecedor_id'];
 
     public function itemDetalhe(){
-        return $this->hasOne(ProdutoDetalhe::class, 'produto_id', 'id');
+        return $this->hasOne(ItemDetalhe::class, 'produto_id', 'id');
+    }
+
+    public function fornecedor(){
+        return $this->belongsTo(Fornecedor::class);
     }
 }
