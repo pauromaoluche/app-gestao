@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\PedidoProdutoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ProdutoDetalheController;
 use App\Http\Controllers\SobreNosController;
@@ -36,7 +39,6 @@ Route::post('/login', [LoginController::class, 'autenticar'])->name('site.login'
 Route::middleware('autenticacao:padrao')->prefix('/app')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('app.index');
     Route::get('/sair', [LoginController::class, 'sair'])->name('app.sair');
-    Route::get('/clientes', function () { return 'Clientes'; })->name('app.clientes');
     Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.fornecedores');
     Route::post('/fornecedores/listar', [FornecedorController::class, 'listar'])->name('app.fornecedores.listar');
     Route::get('/fornecedores/listar', [FornecedorController::class, 'listar'])->name('app.fornecedores.listar');
@@ -46,6 +48,10 @@ Route::middleware('autenticacao:padrao')->prefix('/app')->group(function () {
     Route::get('/fornecedor/excluir/{id}', [FornecedorController::class, 'excluir'])->name('app.fornecedores.excluir');
     Route::resource('/produtos', ProdutoController::class);
     Route::resource('produto-detalhe', ProdutoDetalheController::class);
+
+    Route::resource('cliente', ClienteController::class);
+    Route::resource('pedido', PedidoController::class);
+    Route::resource('pedido-produto', PedidoProdutoController::class);
 });
 
 
