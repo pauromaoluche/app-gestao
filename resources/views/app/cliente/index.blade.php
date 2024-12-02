@@ -28,11 +28,11 @@
                         @foreach ($clientes as $item)
                             <tr>
                                 <td>{{ $item->nome }}</td>
-                                <td><a href="{{ route('cliente.show', ['produto' => $item->id]) }}">Ver</a></td>
-                                <td><a href="{{ route('cliente.edit', ['produto' => $item->id]) }}">Editar</a></td>
+                                <td><a href="{{ route('cliente.show', ['cliente' => $item->id]) }}">Ver</a></td>
+                                <td><a href="{{ route('cliente.edit', ['cliente' => $item->id]) }}">Editar</a></td>
                                 <td>
                                     <form id="form_{{ $item->id }}" method="POST"
-                                        action="{{ route('cliente.destroy', ['produto' => $item->id]) }}">
+                                        action="{{ route('cliente.destroy', ['cliente' => $item->id]) }}">
                                         @csrf
                                         @method('DELETE')
                                         <a href="#"
