@@ -9,6 +9,8 @@
         @endforeach
     </select>
     {{ $errors->has('produto_id') ? $errors->first('produto_id') : '' }}
+    <input type="number" name="quantidade" value="{{ old('quantidade') ? old('quantidade') : 1 }}" placeholder="Quantidade">
+    {{ $errors->has('quantidade') ? $errors->first('quantidade') : '' }}
 
     {{-- <select name="cliente_id">
         <option>Selecione</option>
