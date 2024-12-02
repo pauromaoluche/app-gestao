@@ -24,16 +24,17 @@
                         <tr>
                             <th>ID produto</th>
                             <th>Nome do produto</th>
+                            <th>Data de inclusão do item pedido</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($pedido->produtos as $item)
-                        <tr>
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->nome }}</td>
-                        </tr>
+                            <tr>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->nome }}</td>
+                                <td>{{ $item->pivot->created_at->format('d/m/Y') }}</td>
+                            </tr>
                         @endforeach
-
                     </tbody>
                 </table>
                 @component('app.pedido_produto._components.form_create_edit', ['pedido' => $pedido, 'produtos' => $produtos])
